@@ -1,22 +1,18 @@
-package main1
+package main
 
 import (
 	"fmt"
 )
 
 // TreeNode二叉树结构
-type TreeNode struct {
-	Value int
-	Left  *TreeNode;
-	Right *TreeNode;
-}
+
 
 // 先序遍历
 func preOrderTraverse(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	fmt.Printf(" %d ", root.Value)
+	fmt.Printf(" %d ", root.Val)
 	preOrderTraverse(root.Left)
 	preOrderTraverse(root.Right)
 }
@@ -31,7 +27,7 @@ func preOrderNoRecursion(root *TreeNode) {
 	stack.PushBack(root)
 	for !stack.Emtpy() {
 		node := stack.Pop()
-		fmt.Printf(" %d ", node.Value)
+		fmt.Printf(" %d ", node.Val)
 		if node.Left != nil {
 			stack.PushBack(node.Left)
 		}
@@ -49,7 +45,7 @@ func inOrderTraverse(root *TreeNode) {
 	}
 
 	inOrderTraverse(root.Left)
-	fmt.Printf(" %d ", root.Value)
+	fmt.Printf(" %d ", root.Val)
 	inOrderTraverse(root.Right)
 }
 
@@ -67,7 +63,7 @@ func inOrderNoRecursion(root *TreeNode) {
 		if node.Left != nil {
 			stack.PushBack(node.Left)
 		}
-		fmt.Printf(" %d ", node.Value)
+		fmt.Printf(" %d ", node.Val)
 		if node.Right != nil {
 			stack.PushBack(node.Right)
 		}
@@ -82,7 +78,7 @@ func postOrderTraverse(root *TreeNode) {
 	}
 	postOrderTraverse(root.Left)
 	postOrderTraverse(root.Right)
-	fmt.Printf(" %d ", root.Value)
+	fmt.Printf(" %d ", root.Val)
 }
 
 //中序非递归
@@ -103,7 +99,7 @@ func postOrderNoRecursion(root *TreeNode) {
 		if node.Right != nil {
 			stack.PushBack(node.Right)
 		}
-		fmt.Printf(" %d ", node.Value)
+		fmt.Printf(" %d ", node.Val)
 	}
 }
 
@@ -115,8 +111,48 @@ func levelTraverse(root *TreeNode) {
 	queue := NewQueueList()
 	queue.PushBack(root)
 	for !queue.Emtpy() {
-		node := queue
+		for i := 0; i < queue.Len; i++ {
+			node := queue.Pop()
+			fmt.Printf(" %d ", node.Val)
+			if node.Left != nil {
+				queue.PushBack(node.Left)
+			}
+			if node.Right != nil {
+				queue.PushBack(node.Right)
+			}
+		}
 	}
+}
+
+// https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
+// 二叉树层序遍历,slice 操作头部插入元素，slice动态遍历长度计算
+func levelOrderBottom(root *TreeNode) [][]int {
+	res := [][]int{}
+	if root == nil {
+		return res
+	}
+
+	queue := NewQueueList()
+	queue.PushBack(root)
+	for !queue.Emtpy() {
+		tmp := []int{}
+		len := queue.Len
+		for i := 0; i < len; i++ { // bug
+			node := queue.Pop()
+			tmp = append(tmp, node.Val)
+			if node.Left != nil {
+				queue.PushBack(node.Left)
+			}
+			if node.Right != nil {
+				queue.PushBack(node.Right)
+			}
+		}
+		//res =  append(res, tmp)
+
+		res = append([][]int{tmp}, res...)
+	}
+
+	return res
 }
 
 // 层序输出
@@ -129,11 +165,11 @@ func main() {
 	// 		2
 	// 	 3
 	// 4     5
-	n1 := &TreeNode{Value: 1}
-	n2 := &TreeNode{Value: 2}
-	n3 := &TreeNode{Value: 3}
-	n4 := &TreeNode{Value: 4}
-	n5 := &TreeNode{Value: 5}
+	n1 := &TreeNode{Val: 1}
+	n2 := &TreeNode{Val: 2}
+	n3 := &TreeNode{Val: 3}
+	n4 := &TreeNode{Val: 4}
+	n5 := &TreeNode{Val: 5}
 	n1.Left = n2
 	n2.Left = n3
 	n3.Left = n4
@@ -150,5 +186,7 @@ func main() {
 	fmt.Println()
 	postOrderNoRecursion(n1)
 	fmt.Println()
-
+	levelTraverse(n1)
+	fmt.Println()
+	fmt.Printf("%v \n", levelOrderBottom(n1))
 }
