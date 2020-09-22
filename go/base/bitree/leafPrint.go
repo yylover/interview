@@ -50,6 +50,40 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func findLeaves(root *TreeNode) [][]int {
+	res := [][]int{}
+	if root == nil {
+		return res
+	}
+
+	queue := []*TempNode{}
+	preOrderTreeNode(&queue, root)
+
+	sort.Sort(TempNodeList(queue))
+
+	tmp := []int{}
+	height := 0
+	for index, item := range queue {
+		if item.Height == height {
+			tmp = append(tmp, item.Node.Value)
+		} else {
+			if height != 0 {
+				res = append(res, tmp)
+			}
+			height = item.Height
+			tmp = []int{item.Node.Value}
+		}
+
+		// fmt.Printf("node :%d %d ", item.Node.Value, item.Height)
+		// res = append(res, tmp)
+		if index == len(queue) - 1 {
+			res = append(res, tmp)
+		}
+	}
+
+	return res
+}
+
 func levelPrint(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
@@ -62,7 +96,7 @@ func levelPrint(root *TreeNode) []int {
 
 	res := []int{}
 	for _, item := range queue {
-		fmt.Printf("node :%d %d ", item.Node.Value, item.Height)
+		// fmt.Printf("node :%d %d ", item.Node.Value, item.Height)
 		res = append(res, item.Node.Value)
 	}
 
@@ -142,7 +176,8 @@ func main() {
 	n3.Left = &n4
 	n1.Right = &n5
 
-	fmt.Println(levelPrint(&n1))
+	// fmt.Println(levelPrint(&n1))
+	fmt.Println(findLeaves(&n1))
 	// list := []*TempNode{}
 	// preOrderTreeNode(list, &n1)
 }
