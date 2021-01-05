@@ -1,0 +1,1 @@
+package min_camera_cover

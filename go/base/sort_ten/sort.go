@@ -191,6 +191,22 @@ func quickSortSub(datas []int, left, right int) {
 	quickSortSub(datas, i+1, right)
 }
 
+// 堆 近似完全二叉树，同时满足子节点的减值或索引总是大于（小于）他的父节点
+func heapSort(datas []int) []int {
+	if len(datas) <= 1 {
+		return datas
+	}
+
+	res := []int{}
+
+
+
+	return res
+}
+
+
+// 基数排序: 非比较型整数排序算法
+
 
 func main() {
 	res := []int{1, 2, 19, 3, 4, 5, 6}
