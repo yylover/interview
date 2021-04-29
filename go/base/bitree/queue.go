@@ -1,12 +1,6 @@
 package main
 
 
-type TreeNode struct {
-	Val int
-	Left  *TreeNode;
-	Right *TreeNode;
-}
-
 type LinkNode struct {
 	Prev *LinkNode
 	Next *LinkNode

@@ -51,7 +51,7 @@ func ReverseListNode(head *ListNode) *ListNode {
 }
 
 func main() {
-	n1 := GetListNode(2)
+	n1 := GetListNode(5)
 	PrintListNode(n1)
 	n1 = ReverseListNode(n1)
 	PrintListNode(n1)

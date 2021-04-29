@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"strings"
+)
 
 
 // 二分查找
@@ -43,11 +47,22 @@ func search(nums []int, target int) int {
 }
 
 func main() {
-	nums := []int{1}
-	fmt.Println(nums)
-	// for i := 0; i < 10; i++ {
+	// nums := []int{1}
+	// fmt.Println(nums)
+	// s := strings.NewReader("1+2")
+	br := bufio.NewReader(strings.NewReader("1+2"))
+	// br := bufio.NewReader(s)
 
-	fmt.Println("next : ", search(nums, 1))
+	w, err := br.ReadSlice('+')
+	fmt.Println("%q ", string(w), err)
+	// "ABC "
+
+	w, err = br.ReadSlice('+')
+	fmt.Println("%q ", string(w), err)
+	// "DEF "
+
+
+	// fmt.Println("next : ", search(nums, 1))
 	// }
 
 

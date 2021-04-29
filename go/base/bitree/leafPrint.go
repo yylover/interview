@@ -44,11 +44,11 @@ func (l List) Swap(i, j int) {
 	l[i], l[j] = l[j], l[i]
 }
 
-type TreeNode struct {
-	Value int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// type TreeNode struct {
+// 	Value int
+// 	Left  *TreeNode
+// 	Right *TreeNode
+// }
 
 func findLeaves(root *TreeNode) [][]int {
 	res := [][]int{}
