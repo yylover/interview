@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="095e6a3c-19d4-446e-a07a-bae86bb67cb6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/go/base/READEME.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go/base/bitree/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go/base/bitree/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go/base/bitree/queue.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go/util/base.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go/testcase/pooltest/goroutinepool/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go/output/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/output/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,16 +24,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
   <component name="ProjectId" id="1h5TPqqGvgJ9LvPPYufxoF2siZS" />
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/go/base/sort_ten" />
       <recent name="$PROJECT_DIR$/go/base/bitree" />
       <recent name="$PROJECT_DIR$/go/base" />
     </key>
@@ -52,6 +55,18 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="test" type="GoApplicationRunConfiguration" factoryName="Go Application" editBeforeRun="true" activateToolWindowBeforeRun="false">
+      <module name="interview" />
+      <working_directory value="$PROJECT_DIR$/go/testcase/list/swap" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/|$PROJECT_DIR$/go/base/bitree/middle.go|$PROJECT_DIR$/go/testcase/list/bitree_level/" />
+      <directory value="$PROJECT_DIR$/go/testcase/list/swap" />
+      <output_directory value="$PROJECT_DIR$/go/output" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -63,10 +78,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>direct</proxy>
   </component>
 </project>
