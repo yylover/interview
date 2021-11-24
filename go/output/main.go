@@ -16,6 +16,53 @@ func getTodayUnix() int64 {
 	return newTime.Unix()
 }
 
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+/*
+ * @lc app=leetcode.cn id=23 lang=golang
+ *
+ * [23] 合并K个升序链表
+ */
+
+// @lc code=start
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func findSmallList(lists *[]*ListNode) *ListNode {
+	var ptr **ListNode = nil
+	for _, node := range *lists {
+		if node != nil {
+			if node == nil || node.Val < *ptr.Val {
+				*ptr = node
+			}
+		}
+	}
+	*ptr = *ptr.Next
+	return ptr
+}
+func mergeKLists(lists []*ListNode) *ListNode {
+	head := &ListNode{}
+	nextPtr := head
+	node := findSmallList(lists)
+	for node != nil {
+		nextPtr.Next = node
+		nextPtr = nextPtr.Next
+		node = findSmallList(lists)
+	}
+	return head.Next
+}
+
+// @lc code=end
+
+
+
 
 func main() {
 

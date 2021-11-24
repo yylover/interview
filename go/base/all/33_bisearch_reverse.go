@@ -17,7 +17,6 @@ func binarySearch(nums []int, target, i, j int) int {
 }
 
 func search(nums []int, target int) int {
-
 	i, j := 0, len(nums)-1
 	for i <= j {
 		index := (i + j) / 2
